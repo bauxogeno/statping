@@ -1,6 +1,9 @@
 package handlers
 
 import (
+	"fmt"
+	"net/http"
+
 	"github.com/gorilla/mux"
 	"github.com/statping/statping/database"
 	"github.com/statping/statping/types/errors"
@@ -8,7 +11,6 @@ import (
 	"github.com/statping/statping/types/hits"
 	"github.com/statping/statping/types/services"
 	"github.com/statping/statping/utils"
-	"net/http"
 )
 
 type serviceOrder struct {
@@ -59,6 +61,9 @@ func apiServiceHandler(r *http.Request) interface{} {
 }
 
 func apiCreateServiceHandler(w http.ResponseWriter, r *http.Request) {
+	var funcName = "apiCreateServiceHandler"
+	log.Infoln(fmt.Sprintf("%s: %s", funcName, "test"))
+
 	var service *services.Service
 	if err := DecodeJSON(r, &service); err != nil {
 		sendErrorJson(err, w, r)
@@ -115,6 +120,10 @@ func apiServicePatchHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func apiServiceUpdateHandler(w http.ResponseWriter, r *http.Request) {
+	var funcName = "apiServiceUpdateHandler"
+	log.Infoln(fmt.Sprintf("%s: %s", funcName, ">"))
+
+	log.Infoln(fmt.Sprintf("%s: %s", funcName, "Get service from request"))
 	service, err := findService(r)
 	if err != nil {
 		sendErrorJson(err, w, r)
@@ -128,8 +137,11 @@ func apiServiceUpdateHandler(w http.ResponseWriter, r *http.Request) {
 		sendErrorJson(err, w, r)
 		return
 	}
+	log.Infoln(fmt.Sprintf("%s: %s", funcName, "Check service object"))
 	go service.CheckService(true)
 	sendJsonAction(service, "update", w, r)
+
+	log.Infoln(fmt.Sprintf("%s: %s", funcName, "<"))
 }
 
 func apiServiceDataHandler(w http.ResponseWriter, r *http.Request) {

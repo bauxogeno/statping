@@ -133,6 +133,7 @@ const italian = {
     tls_cert: "Usa certificato TLS",
     notification_opts: "Opzioni di notifica",
     notifications_enable: "Abilita notifiche",
+    smtp_recipients: "Email Destinatari",
     notify_after: "Notify dopo gli errori",
     notify_all: "Notifichi tutte le modifiche",
     service_update: "Servizio di aggiornamento",

@@ -133,6 +133,7 @@ const english = {
     tls_cert: "Use TLS Cert",
     notification_opts: "Notification Options",
     notifications_enable: "Enable Notifications",
+    smtp_recipients: "Recipients email",
     notify_after: "Notify After Failures",
     notify_all: "Notify All Changes",
     service_update: "Update Service",

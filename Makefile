@@ -141,12 +141,12 @@ top:
 
 frontend-build:
 	@echo "Removing old frontend distributions..."
-	@rm -rf source/dist && rm -rf frontend/dist
+	rm -rf source/dist && rm -rf frontend/dist
 	@echo "yarn install and build static frontend"
 	cd frontend && yarn && yarn build
-	@cp -r frontend/dist source/
-	@cp -r frontend/src/assets/scss source/dist/
-	@cp frontend/public/robots.txt source/dist/
+	cp -r frontend/dist source/
+	cp -r frontend/src/assets/scss source/dist/
+	cp frontend/public/robots.txt source/dist/
 	@echo "Frontend build complete at ./source/dist"
 
 yarn:
