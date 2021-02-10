@@ -65,6 +65,8 @@ type Service struct {
 
 	notifyAfterCount int64 `gorm:"-" json:"-" yaml:"-"`
 	prevOnline       bool  `gorm:"-" json:"-" yaml:"-"`
+
+	SmtpRecipients string `gorm:"column:smtp_recipients" json:"smtp_recipients" yaml:"smtp_recipients" scope:"user,admin"`
 }
 
 // ServiceOrder will reorder the services based on 'order_id' (Order)

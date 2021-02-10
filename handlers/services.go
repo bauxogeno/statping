@@ -133,6 +133,8 @@ func apiServiceUpdateHandler(w http.ResponseWriter, r *http.Request) {
 		sendErrorJson(err, w, r)
 		return
 	}
+
+	log.Infoln(fmt.Sprintf("%s: %s", funcName, "Update service"))
 	if err := service.Update(); err != nil {
 		sendErrorJson(err, w, r)
 		return

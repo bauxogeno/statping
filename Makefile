@@ -15,6 +15,10 @@ PATH:=$(GOPATH)/bin:$(PATH)
 OS = freebsd linux openbsd
 ARCHS = 386 arm amd64 arm64
 
+
+live-build:
+	CGO_ENABLED=1 go build -a -ldflags "-s -w -X main.VERSION=${VERSION} -X main.COMMIT=${COMMIT}" -o ./tmp/statping --tags "netgo osusergo" ./cmd
+
 all: build-deps compile install test build
 
 test: clean compile

@@ -1,6 +1,8 @@
 package services
 
 import (
+	"fmt"
+
 	"github.com/statping/statping/types/failures"
 	"github.com/statping/statping/types/notifications"
 	"github.com/statping/statping/utils"
@@ -48,6 +50,12 @@ func sendSuccess(s *Service) {
 }
 
 func sendFailure(s *Service, f *failures.Failure) {
+	var funcName = "sendFailure"
+	log.Infoln(fmt.Sprintf("%s: %s", funcName, ">"))
+
+	log.Infoln(fmt.Sprintf("%s: %s", funcName, "Emal recipients:"))
+	log.Infoln(fmt.Sprintf("%s: %s", funcName, s.SmtpRecipients))
+
 	if !s.AllowNotifications.Bool {
 		return
 	}

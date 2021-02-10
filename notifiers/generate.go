@@ -113,8 +113,8 @@ const emailFailureMJML = `<mjml>
           
           <mj-button border-radius="4px" background-color="#cb121c" href="{{.Core.Domain}}/service/{{.Service.Id}}">View Dashboard</mj-button>
           
-    </mj-column>
-  </mj-section>
+      </mj-column>
+    </mj-section>
         
        
     <mj-raw>
@@ -124,22 +124,22 @@ const emailFailureMJML = `<mjml>
         
         
    
-  <mj-section padding="0px" background-color="#fafafa">
-        <mj-column>
-          <mj-text font-size="20px" color="#626262">Service Domain</mj-text>
-          <mj-text padding-top="0px" font-size="14px" color="#626262">{{.Service.Domain}}</mj-text>
-    </mj-column>
-  </mj-section>
+    <mj-section padding="0px" background-color="#fafafa">
+      <mj-column>
+            <mj-text font-size="20px" color="#626262">Service Domain</mj-text>
+            <mj-text padding-top="0px" font-size="14px" color="#626262">{{.Service.Domain}}</mj-text>
+      </mj-column>
+    </mj-section>
     
     <mj-section padding="0px"  background-color="#ffffff">
         <mj-column>
           <mj-text font-size="20px" color="#626262">Current Issue</mj-text>
           <mj-text padding-top="0px" font-size="14px" color="#626262">{{.Failure.Issue}}</mj-text>
-    </mj-column>
-  </mj-section>
+      </mj-column>
+    </mj-section>
     
    
- <mj-spacer height="30px" />
+    <mj-spacer height="30px" />
         
     <mj-section padding="0" background-url="https://assets.statping.com/offlinebanner.png" background-color="#a30911">
       <mj-column>
@@ -147,34 +147,33 @@ const emailFailureMJML = `<mjml>
       </mj-column>
     </mj-section>
         
-         <mj-section padding-bottom="0" padding-top="10px">
-        <mj-column>
+    <mj-section padding-bottom="0" padding-top="10px">
+      <mj-column>
         <mj-text color="#445566" font-size="11px" align="center" line-height="16px">
             You are receiving this email because one of your services has changed on your Statping instance. You can modify this email on the Email Notifier page in Settings.
           </mj-text>
           <mj-text color="#445566" font-size="11px" align="center" line-height="16px">
             &copy; Statping
-          </mj-text>
-        </mj-column>
-      </mj-section>
-        
-         <mj-section padding-top="0" padding-bottom="0">
-        <mj-group>
-          <mj-column width="100%" padding-right="0">
-            <mj-text color="#445566" font-size="11px" align="center" line-height="16px" font-weight="bold">
-              <a class="footer-link" href="https://statping.com">Statping.com</a>&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0; 
-              
-              <a class="footer-link" href="https://github.com/statping/statping">Github</a>&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;
-              
-              <a class="footer-link" href="https://statping.com/privacy">Privacy</a>&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;
-            </mj-text>
-          </mj-column>
-        </mj-group>
-
-      </mj-section>
+        </mj-text>
       </mj-column>
     </mj-section>
-        
+    
+    <!--
+    <mj-section padding-top="0" padding-bottom="0">
+      <mj-group>
+        <mj-column width="100%" padding-right="0">
+          <mj-text color="#445566" font-size="11px" align="center" line-height="16px" font-weight="bold">
+            <a class="footer-link" href="https://statping.com">Statping.com</a>&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0; 
+            
+            <a class="footer-link" href="https://github.com/statping/statping">Github</a>&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;
+            
+            <a class="footer-link" href="https://statping.com/privacy">Privacy</a>&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;
+          </mj-text>
+        </mj-column>
+      </mj-group>
+    </mj-section>
+    -->
+
   </mj-body>
 </mjml>`
 
@@ -239,18 +238,15 @@ const emailSuccessMJML = `<mjml>
       </mj-column>
     </mj-section>
         
-         <mj-section padding-bottom="0" padding-top="10px">
+      <mj-section padding-bottom="0" padding-top="10px">
         <mj-column>
         <mj-text color="#445566" font-size="11px" align="center" line-height="16px">
             You are receiving this email because one of your services has changed on your Statping instance. You can modify this email on the Email Notifier page in Settings.
           </mj-text>
-          <mj-text color="#445566" font-size="11px" align="center" line-height="16px">
-            &copy; Statping
-          </mj-text>
         </mj-column>
       </mj-section>
-        
-         <mj-section padding-top="0" padding-bottom="0">
+      <!--  
+      <mj-section padding-top="0" padding-bottom="0">
         <mj-group>
           <mj-column width="100%" padding-right="0">
             <mj-text color="#445566" font-size="11px" align="center" line-height="16px" font-weight="bold">
@@ -262,10 +258,7 @@ const emailSuccessMJML = `<mjml>
             </mj-text>
           </mj-column>
         </mj-group>
-
       </mj-section>
-      </mj-column>
-    </mj-section>
-        
+      -->
   </mj-body>
 </mjml>`

@@ -245,6 +245,7 @@
                     </div>
                 </div>
                 <!-- SMTP email recipients -->
+                <!-- hot -->
                 <div v-if="service.allow_notifications"  class="form-group row">
                     <label class="col-sm-4 col-form-label">{{ $t('smtp_recipients') }}</label>
                     <div class="col-sm-8">
