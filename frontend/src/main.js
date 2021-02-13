@@ -11,9 +11,17 @@ import "./icons"
 import store from './store'
 import language from './languages'
 
+import { BootstrapVue} from 'bootstrap-vue'
+// Import Bootstrap an BootstrapVue CSS files (order is important)
+//import 'bootstrap/dist/css/bootstrap.css'
+//import 'bootstrap-vue/dist/bootstrap-vue.css'
+
 const App = () => import(/* webpackChunkName: "index" */ '@/App.vue')
 
 Vue.component('apexchart', VueApexCharts)
+
+// Make BootstrapVue available throughout your project
+Vue.use(BootstrapVue)
 
 Vue.use(VueClipboard);
 Vue.use(VueRouter);

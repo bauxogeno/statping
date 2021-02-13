@@ -21,6 +21,7 @@
     "@fortawesome/vue-fontawesome": "^0.1.9",
     "apexcharts": "^3.23.0",
     "axios": "^0.19.1",
+    "bootstrap-vue": "^2.21.2",
     "codemirror-colorpicker": "^1.9.66",
     "core-js": "^3.6.5",
     "date-fns": "^2.9.0",

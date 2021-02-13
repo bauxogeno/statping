@@ -249,9 +249,21 @@
                 <div v-if="service.allow_notifications"  class="form-group row">
                     <label class="col-sm-4 col-form-label">{{ $t('smtp_recipients') }}</label>
                     <div class="col-sm-8">
+                       <!--
                         <input v-model="service.smtp_recipients" id="smtp_recipients" type="text" name="smtp_recipients" class="form-control" placeholder="Email address" required spellcheck="false" autocorrect="off">                        
-                        <small class="form-text text-muted">The emails to be used for sending alerts.</small>                        
+                        -->
+                        <b-form-tags 
+                            placeholder="Email address"
+                            separator=","
+                            input-id="smtp_recipients" 
+                            name="smtp_recipients"
+                            id="smtp_recipients"
+                            v-model="service.smtp_recipients">
+                        </b-form-tags>                       
+                        
+                        <small class="form-text text-muted">The emails to be used for sending alerts. Use comma to add more emails</small>                        
                     </div>
+
                 </div>
                 
                 <div v-if="service.allow_notifications"  class="form-group row">

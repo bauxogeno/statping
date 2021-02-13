@@ -58,7 +58,7 @@ const webpackConfig = {
         ]
       },
         {
-            test: /\.(gif|svg|jpg|png)$/,
+            test: /\.(gif|svg|jpg|png|eot|woff|woff2|ttf)$/,
             loader: "file-loader",
         }
     ]
