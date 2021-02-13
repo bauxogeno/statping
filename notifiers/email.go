@@ -3,7 +3,6 @@ package notifiers
 import (
 	"crypto/tls"
 	"fmt"
-	"strings"
 
 	"github.com/go-mail/mail"
 	"github.com/statping/statping/emails"
@@ -93,13 +92,18 @@ type emailOutgoing struct {
 // OnFailure will trigger failing service
 func (e *emailer) OnFailure(s services.Service, f failures.Failure) (string, error) {
 	log.Infof("Email OnFailure: %s", ">")
-	log.Infof("Email OnFailure: recipients=%s", s.SmtpRecipients)
+
+	// log.Infof("Email OnFailure: recipients=%s", s.SMTPRecipient)
+	// recipientList := strings.Split(s.SMTPRecipient, ",")
+	// log.Infof("Email OnFailure: found %d recipients", len(recipientList))
+
+	for _, actualRecipient := range s.SMTPRecipient {
+		log.Infoln(fmt.Sprintf("%s: %s %s", "email.go OnFailure", "Reciepient=", actualRecipient))
+	}
+	log.Infoln(fmt.Sprintf("%s: %s %d", "email.go OnFailure", "Number of emails found=", len(s.SMTPRecipient)))
 
 	// TODO test s.SmtpRecipients if is null use e.Var2.String
-	recipientList := strings.Split(s.SmtpRecipients, ",")
-	log.Infof("Email OnFailure: found %d recipients", len(recipientList))
-
-	for _, recipient := range recipientList {
+	for _, recipient := range s.SMTPRecipient {
 		//subscriber := e.Var2.String
 		subscriber := recipient
 
@@ -133,12 +137,13 @@ func (e *emailer) OnFailure(s services.Service, f failures.Failure) (string, err
 // OnSuccess will trigger successful service
 func (e *emailer) OnSuccess(s services.Service) (string, error) {
 	log.Infof("Email OnSuccess: %s", ">")
-	log.Infof("Email OnSuccess: recipients=%s", s.SmtpRecipients)
 
-	recipientList := strings.Split(s.SmtpRecipients, ",")
-	log.Infof("Email OnFailure: found %d recipients", len(recipientList))
+	for _, actualRecipient := range s.SMTPRecipient {
+		log.Infoln(fmt.Sprintf("%s: %s %s", "email.go OnSuccess", "Reciepient=", actualRecipient))
+	}
+	log.Infoln(fmt.Sprintf("%s: %s %d", "email.go OnSuccess", "Number of emails found=", len(s.SMTPRecipient)))
 
-	for _, recipient := range recipientList {
+	for _, recipient := range s.SMTPRecipient {
 		//subscriber := e.Var2.String
 		subscriber := recipient
 

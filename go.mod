@@ -21,6 +21,7 @@ require (
 	github.com/hako/durafmt v0.0.0-20200605151348-3a43fc422dd9
 	github.com/imdario/mergo v0.3.11 // indirect
 	github.com/jinzhu/gorm v1.9.12
+	github.com/lib/pq v1.3.0
 	github.com/mattn/go-sqlite3 v2.0.3+incompatible
 	github.com/mattn/goveralls v0.0.7 // indirect
 	github.com/pelletier/go-toml v1.8.1 // indirect

@@ -54,7 +54,9 @@ func sendFailure(s *Service, f *failures.Failure) {
 	log.Infoln(fmt.Sprintf("%s: %s", funcName, ">"))
 
 	log.Infoln(fmt.Sprintf("%s: %s", funcName, "Emal recipients:"))
-	log.Infoln(fmt.Sprintf("%s: %s", funcName, s.SmtpRecipients))
+	for _, actualRecipient := range s.SMTPRecipient {
+		log.Infoln(fmt.Sprintf("%s: %s", funcName, actualRecipient))
+	}
 
 	if !s.AllowNotifications.Bool {
 		return

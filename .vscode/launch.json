@@ -5,6 +5,18 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "name": "Launch statping",
+            "type": "go",
+            "request": "launch",
+            "mode": "exec",
+            "program": "/home/bauxogeno/projects/vsc-wrkspc-02/statping/statping",
+            "args": [
+                "-p",
+                "8585"
+            ]
+        },
+    
+        {
             "name": "Launch",
             "type": "go",
             "request": "launch",

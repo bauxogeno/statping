@@ -15,6 +15,19 @@ PATH:=$(GOPATH)/bin:$(PATH)
 OS = freebsd linux openbsd
 ARCHS = 386 arm amd64 arm64
 
+x-build-debug-executable: clean
+	CGO_ENABLED=1 go build -a -gcflags "-N -l" -o statping --tags "netgo osusergo" ./cmd
+
+x-run-dev-front:
+	@echo "Run frontent in dev server...."
+	cd frontend && yarn dev
+
+x-run-dev-back-front:
+	@echo "Run statping on port 8585..."
+	./statping -p 8585 &
+	@echo "Run frontent in dev server...."
+	make x-run-dev-front
+
 
 live-build:
 	CGO_ENABLED=1 go build -a -ldflags "-s -w -X main.VERSION=${VERSION} -X main.COMMIT=${COMMIT}" -o ./tmp/statping --tags "netgo osusergo" ./cmd

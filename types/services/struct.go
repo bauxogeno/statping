@@ -3,6 +3,7 @@ package services
 import (
 	"time"
 
+	"github.com/lib/pq"
 	"github.com/statping/statping/types/checkins"
 	"github.com/statping/statping/types/failures"
 	"github.com/statping/statping/types/incidents"
@@ -66,8 +67,15 @@ type Service struct {
 	notifyAfterCount int64 `gorm:"-" json:"-" yaml:"-"`
 	prevOnline       bool  `gorm:"-" json:"-" yaml:"-"`
 
-	SmtpRecipients string `gorm:"column:smtp_recipients" json:"smtp_recipients" yaml:"smtp_recipients" scope:"user,admin"`
+	// SMTPRecipient []*SMTPRecipient `gorm:"foreignkey:service;association_foreignkey:id" json:"smtp_recipients,omitempty" yaml:"smtp_recipients"`
+	SMTPRecipient pq.StringArray `gorm:"type:text[]" json:"smtp_recipients,omitempty" yaml:"smtp_recipients"`
 }
+
+// SMTPRecipient Storing email of smtp recipients
+// type SMTPRecipient struct {
+// 	ID    int64  `gorm:"primary_key;column:id" json:"id" yaml:"id"`
+// 	Email string `gorm:"column:email" json:"email" yaml:"email" scope:"user,admin"`
+// }
 
 // ServiceOrder will reorder the services based on 'order_id' (Order)
 type ServiceOrder []Service
